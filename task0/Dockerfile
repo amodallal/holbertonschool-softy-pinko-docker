@@ -1,11 +1,8 @@
-# Use the latest version of Ubuntu as a parent image
+# Use the latest official Ubuntu image as base
 FROM ubuntu:latest
 
-# Update the package lists for upgrades for packages that need upgrading
-RUN apt-get update
+# Update and upgrade APT packages
+RUN apt-get update && apt-get upgrade -y
 
-# Upgrade all the installed packages
-RUN apt-get upgrade -y
-
-# When the Docker container is run, echo "Hello, World!"
+# Default command to echo "Hello, World!"
 CMD echo "Hello, World!"
