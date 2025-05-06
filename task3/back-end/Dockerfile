@@ -1,10 +1,4 @@
-FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y python3 python3-pip
-RUN pip3 install --break-system-packages Flask
-RUN pip3 install --break-system-packages flask flask-cors
-WORKDIR /app
-COPY ./api.py /app/api.py
-EXPOSE 5252
-CMD python3 api.py
+FROM nginx:latest
+
+COPY ./softy-pinko-front-end /var/www/html/softy-pinko-front-end
+COPY ./softy-pinko-front-end.conf /etc/nginx/conf.d/default.conf
